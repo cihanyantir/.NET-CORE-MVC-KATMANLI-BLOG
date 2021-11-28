@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Entity_Framework
 {
-    class EfContactRepository : GenericRepository<Contact>, IContactDal
+    public class EfContactRepository : GenericRepository<Contact>, IContactDal
     {
     }
 }
