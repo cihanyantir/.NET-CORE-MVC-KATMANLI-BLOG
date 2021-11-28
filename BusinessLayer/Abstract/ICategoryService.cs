@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace BusinessLayer.Abstract
 {
     public interface ICategoryService
+    // public void Delete(T t) GenericRepository imzasına parametre yazılıyor
     {
         void CategoryAdd(Category category);
         void CategoryDelete(Category category);
