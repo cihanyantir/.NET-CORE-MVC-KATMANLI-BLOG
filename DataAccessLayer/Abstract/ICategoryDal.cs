@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface ICategoryDal:IGenericDal<Category>
+    public interface ICategoryDal:IGenericDal<Category> 
+   //EntityFramework veya diğer teknolojiler implemente edildiğinde Catergory Manager'dan çağrılabilir.
     {
        
     }
