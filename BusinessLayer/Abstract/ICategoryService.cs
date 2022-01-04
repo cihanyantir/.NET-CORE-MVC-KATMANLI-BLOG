@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-    public interface ICategoryService
+    public interface ICategoryService:IGenericService<Category> //REFACTORING
+
+        //**********************REFACTORING********************************/
     // public void Delete(T t) GenericRepository imzasına parametre yazılıyor
     {
-        void CategoryAdd(Category category);
-        void CategoryDelete(Category category);
-        void CategoryUpdate(Category category);
-        List<Category> GetList();
-        Category GetById(int id);
+        //void CategoryAdd(Category category);
+        //void CategoryDelete(Category category);
+        //void CategoryUpdate(Category category);
+        //List<Category> GetList();
+        //Category GetById(int id);
     }
 }
