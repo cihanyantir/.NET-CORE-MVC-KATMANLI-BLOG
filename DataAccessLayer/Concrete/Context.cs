@@ -12,14 +12,36 @@ namespace DataAccessLayer.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)//bağlantı stringi
         {
-            optionsBuilder.UseSqlServer("server=DESKTOP-OE95DLD\\MSSQLSERVER01;database=CoreBlogDb; integrated security=true;");
+            optionsBuilder.UseSqlServer("server=DESKTOP-OE95DLD\\MSSQLSERVER01;database=CoreBlogDbs; integrated security=true;");
+        }
+        protected override void OnModelCreating (ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Message2>()
+                .HasOne(x => x.SenderUser)
+                .WithMany(Y => Y.WriterSender)
+                .HasForeignKey(z => z.SenderID)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+
+            modelBuilder.Entity<Message2>()
+                .HasOne(x => x.ReceiverUser) //Receiveruses has foreign as ReceiverID
+                .WithMany(Y => Y.WriterReceiver)
+                .HasForeignKey(z => z.ReceiverID)
+                .OnDelete(DeleteBehavior.ClientSetNull);
         }
         public DbSet<About> Abouts{ get; set; }
         public DbSet<Blog> Blogs{ get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Comment> Comments { get; set; }
-        public DbSet<Contact> Contacts { get; set; }
-        public DbSet<Writer> Writers { get; set; }
+        public DbSet<Category> Categories{ get; set; }
+        public DbSet<Comment> Comments{ get; set; }
+        public DbSet<Contact> Contacts{ get; set; }
+        public DbSet<Writer> Writers{ get; set; }
+        public DbSet<NewsLetter> NewsLetters { get; set; }
+        public DbSet<BlogRayting> BlogRaytings { get; set; }
+        public DbSet<Notification> Notifications  { get; set; }
+        public DbSet<Message> Messages  { get; set; }
+        public DbSet<Message2> Message2s  { get; set; }
+        
+
+
 
     }
 }
