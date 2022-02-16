@@ -2,43 +2,43 @@
 
 namespace DataAccessLayer.Migrations
 {
-    public partial class mig2 : Migration
+    public partial class writerblog : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<int>(
-                name: "CategoryID",
+                name: "WriterID",
                 table: "Blogs",
                 type: "int",
                 nullable: false,
                 defaultValue: 0);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Blogs_CategoryID",
+                name: "IX_Blogs_WriterID",
                 table: "Blogs",
-                column: "CategoryID");
+                column: "WriterID");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Blogs_Categories_CategoryID",
+                name: "FK_Blogs_Writers_WriterID",
                 table: "Blogs",
-                column: "CategoryID",
-                principalTable: "Categories",
-                principalColumn: "CategoryID",
+                column: "WriterID",
+                principalTable: "Writers",
+                principalColumn: "WriterID",
                 onDelete: ReferentialAction.Cascade);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Blogs_Categories_CategoryID",
+                name: "FK_Blogs_Writers_WriterID",
                 table: "Blogs");
 
             migrationBuilder.DropIndex(
-                name: "IX_Blogs_CategoryID",
+                name: "IX_Blogs_WriterID",
                 table: "Blogs");
 
             migrationBuilder.DropColumn(
-                name: "CategoryID",
+                name: "WriterID",
                 table: "Blogs");
         }
     }

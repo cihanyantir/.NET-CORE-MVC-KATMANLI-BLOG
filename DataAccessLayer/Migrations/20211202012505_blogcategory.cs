@@ -2,44 +2,44 @@
 
 namespace DataAccessLayer.Migrations
 {
-    public partial class mig3 : Migration
+    public partial class blogcategory : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<int>(
-                name: "BlogID",
-                table: "Comments",
+                name: "CategoryID",
+                table: "Blogs",
                 type: "int",
                 nullable: false,
                 defaultValue: 0);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Comments_BlogID",
-                table: "Comments",
-                column: "BlogID");
+                name: "IX_Blogs_CategoryID",
+                table: "Blogs",
+                column: "CategoryID");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Comments_Blogs_BlogID",
-                table: "Comments",
-                column: "BlogID",
-                principalTable: "Blogs",
-                principalColumn: "BlogID",
+                name: "FK_Blogs_Categories_CategoryID",
+                table: "Blogs",
+                column: "CategoryID",
+                principalTable: "Categories",
+                principalColumn: "CategoryID",
                 onDelete: ReferentialAction.Cascade);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Comments_Blogs_BlogID",
-                table: "Comments");
+                name: "FK_Blogs_Categories_CategoryID",
+                table: "Blogs");
 
             migrationBuilder.DropIndex(
-                name: "IX_Comments_BlogID",
-                table: "Comments");
+                name: "IX_Blogs_CategoryID",
+                table: "Blogs");
 
             migrationBuilder.DropColumn(
-                name: "BlogID",
-                table: "Comments");
+                name: "CategoryID",
+                table: "Blogs");
         }
     }
 }

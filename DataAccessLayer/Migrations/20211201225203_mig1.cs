@@ -35,7 +35,7 @@ namespace DataAccessLayer.Migrations
                     BlogContent = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BlogThumbnailImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BlogImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     BlogStatus = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -104,7 +104,7 @@ namespace DataAccessLayer.Migrations
                     WriterName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     WriterMail = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     WriterPassword = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    WriterStatus = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    WriterStatus = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
