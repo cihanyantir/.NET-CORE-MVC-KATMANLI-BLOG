@@ -10,16 +10,15 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Entity_Framework
 {
-    public class EfWriterRepository : GenericRepository<Writer>, IWriterDal
+    public class EfNotificationRepository :GenericRepository<Notification>, INotificationDal
     {
-        public int GetWriterID(string useridentity)
+        public List<Notification> GetNotificationWithValueAndDescending(int id) //Get info about category of blogs
         {
             using (var c = new Context())
             {
-                return c.Writers.Where(x => x.WriterMail == useridentity).Select(y => y.WriterID).FirstOrDefault();
-
+                return c.Notifications.Where(x => x.NotificationStatus == true).OrderByDescending(x => x.NotificationID).Take(id).ToList();
             }
-          
+         
         }
     }
 }

@@ -9,8 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Entity_Framework
 {
-   public class EfCommentRepository : GenericRepository<Comment>, ICommentDal
+    public class EfMessageRepository:GenericRepository<Message> , IMessageDal
     {
-
     }
 }
