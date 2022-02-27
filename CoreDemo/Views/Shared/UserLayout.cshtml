@@ -24,7 +24,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			window.scrollTo(0, 1);
 		}
     </script>
-    <link href="/CoreBlogTema/web/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="~/CoreBlogTema/web/css/bootstrap.css" rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="~/CoreBlogTema/web/css/single.css">
     <link href="~/CoreBlogTema/web/css/style.css" rel='stylesheet' type='text/css' />
     <link href="~/CoreBlogTema/web/css/fontawesome-all.css" rel="stylesheet">
@@ -39,7 +39,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="top-bar_sub_w3layouts container-fluid">
             <div class="row">
                 <div class="col-md-4 logo text-left">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="/Blog/Index">
                         <i class="fab fa-linode"></i> Weblog
                     </a>
                 </div>
@@ -75,18 +75,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
         @await Html.PartialAsync("Partial1")
-
-    </header>
+        </header>
+    <!--</header>-->
     <!--//header-->
     <!--/banner-->
-    <div class="banner-inner">
+    <!--<div class="banner-inner">
     </div>
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
             <a href="index.html">Home</a>
         </li>
         <li class="breadcrumb-item active">Blog3</li>
-    </ol>
+    </ol>-->
     <!--//banner-->
     <!--/main-->
     @RenderBody()
@@ -98,6 +98,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="js/jquery-2.2.3.min.js"></script>
     <!-- //js -->
     <!--/ start-smoth-scrolling -->
+
     <script src="~/CoreBlogTema/web/js/move-top.js"></script>
     <script src="~/CoreBlogTema/web/js/easing.js"></script>
     <script>
