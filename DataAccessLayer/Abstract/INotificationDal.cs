@@ -7,13 +7,8 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IBlogDal:IGenericDal<Blog>
+    public interface INotificationDal : IGenericDal<Notification>
     {
-        List<Blog> GetListWithCategory();
-        List<Blog> GetListWithCategoryByWriter(int id);
-        Blog UpdateBlogSelectedID (Blog blog);
-
-
-
+        public List<Notification> GetNotificationWithValueAndDescending(int id);
     }
 }

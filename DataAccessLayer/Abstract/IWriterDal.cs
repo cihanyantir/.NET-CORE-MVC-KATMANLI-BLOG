@@ -9,5 +9,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface IWriterDal:IGenericDal<Writer>
     {
+        public int GetWriterID(string useridentity);
     }
 }

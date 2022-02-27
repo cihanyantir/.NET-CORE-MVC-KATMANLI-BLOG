@@ -7,13 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IBlogDal:IGenericDal<Blog>
+    public interface IMessageDal:IGenericDal<Message>
     {
-        List<Blog> GetListWithCategory();
-        List<Blog> GetListWithCategoryByWriter(int id);
-        Blog UpdateBlogSelectedID (Blog blog);
-
-
-
     }
 }
