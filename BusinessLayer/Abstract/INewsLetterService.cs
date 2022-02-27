@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-   public interface IMessageService:IGenericService<Message>
+    public interface INewsLetterService
     {
-        List<Message2> GetInboxListByWriter(string p);
+        void AddNewsLetter(NewsLetter newsLetter);
     }
 }
