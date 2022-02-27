@@ -1,0 +1,95 @@
+﻿@model EntityLayer.Concrete.NewsLetter
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<div class="tech-btm">
+    <h4>Mail bültenimize abone olun</h4>
+    <p>Pellentesque dui, non felis. Maecenas male </p>
+    <form method="post">
+        <input type="email" placeholder="Email" required="" name="Mail" id="mailalan">
+        <span asp-validation-for="Mail" class="text-danger"></span>
+        <!-- Modal -->
+        <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">
+            Abone ol
+        </button>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Abone ol</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Abone Olmak İstiyor Musunuz?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hayır</button>
+                        <button type="button" class="btn btn-primary" id="btnIslemYap" data-dismiss="modal">Evet</button>
+                        @*<a href="/Blog/Index" class="btn btn-primary" data-dismiss="modal"  input type="submit">Evet </a>*@
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+
+
+
+@*<input type="submit" value="Subscribe" id="btnIslemYap">*@
+
+
+
+
+
+
+
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnIslemYap").click(function () {
+            $.ajax({
+                url: '@Url.Action("NewsLetterPartial", "Invoke")',
+                type: 'POST',
+                dataType: 'html',
+                data: { "Mail": $("#mailalan").val() },
+
+                success: function (data) {
+
+
+                },
+                error: function () {
+                    alert("Hata alındı.");
+                }
+            });
+        });
+    });
+    </script>
+}
+
+
+
+
+<script>
+        $('#btnIslemYap').click(function () {
+
+            swal({
+                title: "Tebrikler!",
+                text: "Başarılı bir şekilde abone oldunuz",
+                icon: "success",
+                button: "Sayfaya geri dön",
+            });
+        });</script>
